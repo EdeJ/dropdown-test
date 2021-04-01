@@ -1,0 +1,28 @@
+import { Reason } from './reason';
+
+export const REASONS: Reason[] = [
+  { id: 1, title: 'Waardestijging', usageCount: 0 },
+  { id: 2, title: 'Bezwaar aanslag OZB gebruik', usageCount: 0 },
+  { id: 3, title: 'Bsr-no-26-3 ', usageCount: 0 },
+  { id: 4, title: 'Geen gebruiker van het pand', usageCount: 0 },
+  { id: 5, title: 'Geen eigenaar van het pand', usageCount: 0 },
+  { id: 6, title: 'Geen E of G van het volledige pand', usageCount: 0 },
+  { id: 7, title: 'Geen zelfstandig gedeelte', usageCount: 0 },
+  { id: 8, title: 'Geen sprake van woonruimte', usageCount: 0 },
+  { id: 9, title: 'Geen sprake van bedrijfsruimte', usageCount: 0 },
+  { id: 10, title: 'Geen sprake van samenstel', usageCount: 0 },
+  { id: 11, title: 'Soort pand', usageCount: 0 },
+  { id: 12, title: 'Geen pand op peildatum', usageCount: 0 },
+  { id: 13, title: 'Waarde OZB te veel gestegen', usageCount: 0 },
+  { id: 14, title: 'Waarde hoog vergelijkingsobjecten', usageCount: 0 },
+  { id: 15, title: 'Te lage daling', usageCount: 0 },
+  { id: 16, title: 'Vergelijking indexcijfers', usageCount: 0 },
+  { id: 17, title: 'Stichtingskosten of aankoopprijs', usageCount: 0 },
+  { id: 18, title: 'Waarde te hoog tov verkoopcijfers', usageCount: 0 },
+  { id: 19, title: 'Vergelijkingspanden niet vergelijkbaar', usageCount: 0 },
+  { id: 20, title: 'Betere vergelijkingsobjecten', usageCount: 0 },
+  { id: 21, title: 'Waarde is te hoog', usageCount: 0 },
+  { id: 22, title: 'Vergelijkingspanden niet identiek', usageCount: 0 },
+  { id: 23, title: 'Ten onrechte huurw.kap.methode', usageCount: 0 },
+  { id: 24, title: 'Huurwaardekapitalisatiefactor te hoog', usageCount: 0 },
+];

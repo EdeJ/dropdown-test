@@ -1,0 +1,12 @@
+.idropdown {
+  margin-top: 60px;
+}
+.top-selection {
+  background-color: #e2eef8;
+}
+.top-selection button {
+  font-weight: bold;
+}
+.top-selection button span {
+  font-weight: normal;
+}

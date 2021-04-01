@@ -36,8 +36,17 @@ export class AppComponent implements OnInit {
     return this.sortByUsageCount(sortedReasons).slice(0, numberOfResults);
   }
 
+  onClick(reason: Reason) {
+    console.log('click: ', reason);
+    this.reasons.find((r) => r.id === reason.id).usageCount++;
+    console.log(this.reasons);
+  }
+
   private sortByUsageCount(reasons: Reason[]) {
-    const sortedReasons = [...reasons];
+    // const sortedReasons = [...reasons];
+    const sortedReasons = reasons.filter((reason) => {
+      return reason.usageCount > 0;
+    });
     return sortedReasons.sort((a, b) => b.usageCount - a.usageCount);
   }
 }

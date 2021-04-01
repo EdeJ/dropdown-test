@@ -20,7 +20,11 @@
             </button>
           </div>
           <div class="dropdown-divider"></div>
-          <button *ngFor="let reason of sortByTitle(reasons)" ngbDropdownItem>
+          <button
+            *ngFor="let reason of sortByTitle(reasons)"
+            ngbDropdownItem
+            (click)="onClick(reason)"
+          >
             {{ reason.id }} - {{ reason.title }} - (used
             {{ reason.usageCount }}x)
           </button>

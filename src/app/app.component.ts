@@ -9,10 +9,23 @@ import { Reason } from './reason';
 })
 export class AppComponent implements OnInit {
   reasons = REASONS;
+  numberOfTopReasons = 4; // number of top-reasons to show on top of the dropdown.
 
   ngOnInit(): void {
-    // this.sortByTitle();
-    // this.topReasons = this.getMostUsed(4);
+    if (localStorage.getItem('reasons') === null) {
+      localStorage.setItem('reasons', JSON.stringify([]));
+    }
+  }
+
+  updateLocalTopReasons(reason: Reason) {
+    const localReasons = JSON.parse(localStorage.getItem('reasons'));
+    if (!this.containsObject(reason, localReasons)) {
+      localReasons.unshift(reason);
+      localStorage.setItem(
+        'reasons',
+        JSON.stringify(localReasons.slice(0, this.numberOfTopReasons))
+      );
+    }
   }
 
   sortByTitle(reasons: Reason[]) {
@@ -32,21 +45,21 @@ export class AppComponent implements OnInit {
   }
 
   getTopReasons(reasons: Reason[], numberOfResults: number) {
-    const sortedReasons = [...reasons];
-    return this.sortByUsageCount(sortedReasons).slice(0, numberOfResults);
+    return JSON.parse(localStorage.getItem('reasons'));
   }
 
   onClick(reason: Reason) {
-    console.log('click: ', reason);
-    this.reasons.find((r) => r.id === reason.id).usageCount++;
-    console.log(this.reasons);
+    this.updateLocalTopReasons(reason);
   }
 
-  private sortByUsageCount(reasons: Reason[]) {
-    // const sortedReasons = [...reasons];
-    const sortedReasons = reasons.filter((reason) => {
-      return reason.usageCount > 0;
-    });
-    return sortedReasons.sort((a, b) => b.usageCount - a.usageCount);
+  containsObject(obj, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].id === obj.id) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }

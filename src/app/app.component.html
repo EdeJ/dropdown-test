@@ -13,10 +13,10 @@
           <div class="top-selection">
             <button
               *ngFor="let reason of getTopReasons(reasons, 4)"
+              (click)="onClick(reason)"
               ngbDropdownItem
             >
-              {{ reason.id }} - {{ reason.title }} -
-              <span>(used {{ reason.usageCount }}x)</span>
+              {{ reason.id }} - {{ reason.title }}
             </button>
           </div>
           <div class="dropdown-divider"></div>
@@ -25,8 +25,7 @@
             ngbDropdownItem
             (click)="onClick(reason)"
           >
-            {{ reason.id }} - {{ reason.title }} - (used
-            {{ reason.usageCount }}x)
+            {{ reason.id }} - {{ reason.title }}
           </button>
         </div>
       </div>

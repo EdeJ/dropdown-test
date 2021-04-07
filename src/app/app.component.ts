@@ -21,11 +21,29 @@ export class AppComponent implements OnInit {
     const localReasons = JSON.parse(localStorage.getItem('reasons'));
     if (!this.containsObject(reason, localReasons)) {
       localReasons.unshift(reason);
-      localStorage.setItem(
-        'reasons',
-        JSON.stringify(localReasons.slice(0, this.numberOfTopReasons))
-      );
+      // localStorage.setItem(
+      //   'reasons',
+      //   JSON.stringify(localReasons.slice(0, this.numberOfTopReasons))
+      // );
+    } else {
+      console.log('localReasons', localReasons);
+
+      // console.log(localReasons[0].id);
+
+      const index = localReasons.findIndex((r) => r.id === reason.id);
+      console.log('index', index);
+
+      [localReasons[0], localReasons[index]] = [
+        localReasons[index],
+        localReasons[0],
+      ];
+
+      console.log('localReasons', localReasons);
     }
+    localStorage.setItem(
+      'reasons',
+      JSON.stringify(localReasons.slice(0, this.numberOfTopReasons))
+    );
   }
 
   sortByTitle(reasons: Reason[]) {
